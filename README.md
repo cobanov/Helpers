@@ -20,6 +20,60 @@
   * [Basic Keras](https://github.com/cobanov/helprepo/blob/master/deeplearning/keras_mnist.py)
   * [More Basic Keras](https://github.com/cobanov/helprepo/blob/master/deeplearning/easykeras.py)
 
+# Helpers
+
+
+### Argument Parser
+
+```
+import argparse
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--isim","-i")
+parser.add_argument("--soyisim","-s")
+parser.add_argument("--no","-n")
+
+veri = parser.parse_args()
+
+print("isim {}".format(veri.isim))
+print("soyisim {}".format(veri.soyisim))
+print("no {}".format(veri.no))
+```
+
+### List Directory
+
+```
+import os
+wd = os.getcwd()
+os.listdir(wd)
+```
+
+### Correlation Matrix
+
+```
+import pandas as pd
+import seaborn as sns
+
+corr = d.corr()
+sns.heatmap(corr)
+```
+
+
+### Pickle 
+
+```
+import pickle
+
+favorite_color = { "lion": "yellow", "kitty": "red" }
+pickle.dump( favorite_color, open( "save.p", "wb" ) )
+favorite_color = pickle.load( open( "save.p", "rb" ) )
+```
+
+
+
+
+
 <!-- CONTACT -->
 ## Contact
 
