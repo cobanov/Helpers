@@ -25,7 +25,7 @@
 
 ### Argument Parser
 
-```
+```python
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -43,7 +43,7 @@ print("no {}".format(veri.no))
 
 ### List Directory
 
-```
+```python
 import os
 wd = os.getcwd()
 os.listdir(wd)
@@ -51,7 +51,7 @@ os.listdir(wd)
 
 ### Correlation Matrix
 
-```
+```python
 import pandas as pd
 import seaborn as sns
 
@@ -62,7 +62,7 @@ sns.heatmap(corr)
 
 ### Pickle 
 
-```
+```python
 import pickle
 
 favorite_color = { "lion": "yellow", "kitty": "red" }
