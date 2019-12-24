@@ -71,6 +71,9 @@ from sklearn.preprocessing import OneHotEncoder
 oh_encoder = OneHotEncoder(sparse=False)
 targets = targets.reshape(150, 1)
 oneho = oh_encoder.fit_transform(targets)
+
+for cols in data.columns:
+    data[cols] = label_encoder.fit_transform(data[cols])
 ```
 
 
