@@ -2,24 +2,6 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
-
-<!-- TABLE OF CONTENTS -->
-## Usefull Tools
-
-#### General
-  * [Argument Parser](https://github.com/cobanov/helprepo/blob/master/argumentparser.py)
-  * [List Directory](https://github.com/cobanov/helprepo/blob/master/listdir.py)
-  * [Readme Template](https://github.com/cobanov/helprepo/blob/master/README_Template.md)
-#### Tutorials 
-* [Pandas](https://github.com/cobanov/helprepo/blob/master/pandas.ipynb)
-* [Matplotlib](https://github.com/cobanov/helprepo/blob/master/matplotlib.ipynb)
-#### Deep Learning
-  * [Hello Tensorflow](https://github.com/cobanov/helprepo/blob/master/deeplearning/tensorflow.py)
-  * [Confusion Matrix](https://github.com/cobanov/helprepo/blob/master/deeplearning/confmat.py)
-  * [GPU Available](https://github.com/cobanov/helprepo/blob/master/deeplearning/gpu_available.py)
-  * [Basic Keras](https://github.com/cobanov/helprepo/blob/master/deeplearning/keras_mnist.py)
-  * [More Basic Keras](https://github.com/cobanov/helprepo/blob/master/deeplearning/easykeras.py)
-
 # Helpers
 
 
@@ -92,6 +74,26 @@ oneho = oh_encoder.fit_transform(targets)
 ```
 
 
+
+
+
+
+<!-- TABLE OF CONTENTS -->
+## Usefull Tools
+
+#### General
+  * [Argument Parser](https://github.com/cobanov/helprepo/blob/master/argumentparser.py)
+  * [List Directory](https://github.com/cobanov/helprepo/blob/master/listdir.py)
+  * [Readme Template](https://github.com/cobanov/helprepo/blob/master/README_Template.md)
+#### Tutorials 
+* [Pandas](https://github.com/cobanov/helprepo/blob/master/pandas.ipynb)
+* [Matplotlib](https://github.com/cobanov/helprepo/blob/master/matplotlib.ipynb)
+#### Deep Learning
+  * [Hello Tensorflow](https://github.com/cobanov/helprepo/blob/master/deeplearning/tensorflow.py)
+  * [Confusion Matrix](https://github.com/cobanov/helprepo/blob/master/deeplearning/confmat.py)
+  * [GPU Available](https://github.com/cobanov/helprepo/blob/master/deeplearning/gpu_available.py)
+  * [Basic Keras](https://github.com/cobanov/helprepo/blob/master/deeplearning/keras_mnist.py)
+  * [More Basic Keras](https://github.com/cobanov/helprepo/blob/master/deeplearning/easykeras.py)
 
 
 <!-- CONTACT -->
