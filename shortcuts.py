@@ -24,10 +24,7 @@ ctypes.windll.user32.SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, "" , 0)
 desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
 files = os.listdir(desktop)
 
-delete = ["Mattermost.lnk", "Bilgi Güvenligi.url", "Bosch HSE.url","BuP1 Kalite Dokumanları.url", \
-            "ClickShare.lnk","Connect CWR-TR.url", "HR Global.url", "ICO Problem Bildirimi.url", \
-            "IT Service Portal.url", "Job Portal.url", "My i-Buy.url", "Q-Reports.URL", \
-            "WinRoster.lnk", "WinTalep.lnk", "ADM Portalı.url"]
+delete = []
 
 for i in delete:
     try:
