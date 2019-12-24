@@ -69,7 +69,27 @@ favorite_color = { "lion": "yellow", "kitty": "red" }
 pickle.dump( favorite_color, open( "save.p", "wb" ) )
 favorite_color = pickle.load( open( "save.p", "rb" ) )
 ```
+### Label Encoding
 
+```python
+from sklearn.datasets import load_iris
+from sklearn.preprocessing import LabelEncoder
+import pandas as pd
+
+cols = ["sepal_length", "sepal_width", "petal_length", "petal_width", "class"] 
+data = pd.read_csv("iris.data", names=cols)
+
+#Label Encoding
+
+label_encoder = LabelEncoder()
+targets = label_encoder.fit_transform(data["class"])
+
+#One Hot Encoding
+from sklearn.preprocessing import OneHotEncoder
+oh_encoder = OneHotEncoder(sparse=False)
+targets = targets.reshape(150, 1)
+oneho = oh_encoder.fit_transform(targets)
+```
 
 
 
