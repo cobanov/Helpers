@@ -107,7 +107,7 @@ cv_results = xgb.cv(dtrain=churn_dmatrix, params=params, nfold=4,
 * [Pandas](https://github.com/cobanov/helprepo/blob/master/pandas.ipynb)
 * [Matplotlib](https://github.com/cobanov/helprepo/blob/master/matplotlib.ipynb)
 #### Machine Learning
-  * [XGBoost Cross-Validation](https://github.com/cobanov/helprepo/blob/master/deeplearning/xgboost_cv.py)
+  * [XGBoost Cross-Validation](https://github.com/cobanov/helprepo/blob/master/xgboost_cv.py)
   * [Hello Tensorflow](https://github.com/cobanov/helprepo/blob/master/deeplearning/tensorflow.py)
   * [Confusion Matrix](https://github.com/cobanov/helprepo/blob/master/deeplearning/confmat.py)
   * [GPU Available](https://github.com/cobanov/helprepo/blob/master/deeplearning/gpu_available.py)
