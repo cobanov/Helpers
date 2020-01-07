@@ -1,3 +1,11 @@
+<p align="center">
+  <img src="https://github.com/cobanov/Helpers/blob/master/help.png" width=300>
+</p>
+
+<p align="center">This repository contains helper scripts for XGBoost
+<b> - Author: Mert Cobanoglu</b> </p>
+
+
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
