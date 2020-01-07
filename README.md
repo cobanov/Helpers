@@ -103,7 +103,18 @@ percentage_threshold = 20 #define percentage to filter
 missing_percentage_df[missing_percentage_df["percent_missing"] < percentage_threshold]
 ```
 
+### Metrics
 
+```python
+import numpy as np
+from sklearn.metrics import precision_score, recall_score, accuracy_score
+
+best_preds = np.asarray([np.argmax(line) for line in preds])
+
+print("Precision = {}".format(precision_score(y_test, best_preds, average='macro')))
+print("Recall = {}".format(recall_score(y_test, best_preds, average='macro')))
+print("Accuracy = {}".format(accuracy_score(y_test, best_preds)))
+```
 
 <!-- TABLE OF CONTENTS -->
 ## Usefull Tools
