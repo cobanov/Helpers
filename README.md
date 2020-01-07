@@ -41,7 +41,6 @@ corr = d.corr()
 sns.heatmap(corr)
 ```
 
-
 ### Pickle 
 
 ```python
@@ -51,6 +50,7 @@ favorite_color = { "lion": "yellow", "kitty": "red" }
 pickle.dump( favorite_color, open( "save.p", "wb" ) )
 favorite_color = pickle.load( open( "save.p", "rb" ) )
 ```
+
 ### Label Encoding
 
 ```python
@@ -75,6 +75,7 @@ oneho = oh_encoder.fit_transform(targets)
 for cols in data.columns:
     data[cols] = label_encoder.fit_transform(data[cols])
 ```
+
 ### XGBoost
 
 ```python
@@ -92,7 +93,15 @@ cv_results = xgb.cv(dtrain=churn_dmatrix, params=params, nfold=4,
                     num_boost_round=10, metrics="error", as_pandas=True)
 ```
 
+### NaN Percentage
 
+```python
+nan_percentage = raw_data.isna().sum() * 100 / len(raw_data)
+missing_percentage_df = pd.DataFrame({'column_name': raw_data.columns, 'percent_missing': nan_percentage}).reset_index(drop=True)
+
+percentage_threshold = 20 #define percentage to filter
+missing_percentage_df[missing_percentage_df["percent_missing"] < percentage_threshold]
+```
 
 
 
