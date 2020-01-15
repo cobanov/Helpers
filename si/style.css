@@ -1,44 +1,46 @@
-.header{
-	font: 15px tahoma, sans-serif;
-margin-left: 200px;
+.header {
+    font: 15px tahoma, sans-serif;
+    margin-left: 200px;
 }
 
-.sidebar{
-	font: 15px tahoma, sans-serif;
-height: 100%;
-width:160px;
-position: fixed;
-top:0;
-left:0;
-background-color: #111;
-overflow-x: hidden;
-padding-top:20px;
-padding-left:20px;
+.sidebar {
+    font: 15px tahoma, sans-serif;
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
-.sidebar a{
+.sidebar a {
 
-padding: 6px 8px 6px 10px;
-text-decoration: none;
-font-size: 25px;
-color:#818181;
-display:block;
+    padding: 6px 8px 6px 10px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
 
 }
 
 .sidebar a:hover {
-  background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 
 .body {
-	font: 15px tahoma, sans-serif;
-  margin-left: 200px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+    font: 15px tahoma, sans-serif;
+    margin-left: 200px;
+    /* Same as the width of the sidebar */
+    padding: 0px 10px;
 }
 
-.code{
-  margin-left: 200px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
-  font-family: monospace;
+.code {
+    margin-left: 200px;
+    /* Same as the width of the sidebar */
+    padding: 0px 10px;
+    font-family: monospace;
 }

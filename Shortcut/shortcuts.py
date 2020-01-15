@@ -12,11 +12,10 @@ from pathlib import Path
 import ctypes
 
 
+# Change Wallpaper
 
-# Change Wallpaper 
-
-SPI_SETDESKWALLPAPER = 20 
-ctypes.windll.user32.SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, "" , 0)
+SPI_SETDESKWALLPAPER = 20
+ctypes.windll.user32.SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, "", 0)
 
 
 # Delete Unwanted Shortcuts
@@ -31,4 +30,3 @@ for i in delete:
         os.remove(desktop + "\\" + i)
     except FileNotFoundError:
         continue
-    
