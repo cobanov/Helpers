@@ -58,6 +58,18 @@ favorite_color = { "lion": "yellow", "kitty": "red" }
 pickle.dump( favorite_color, open( "save.p", "wb" ) )
 favorite_color = pickle.load( open( "save.p", "rb" ) )
 ```
+### Write dataframe with markdown
+```python
+
+import pandas as pd
+
+df = pd.read_csv("diabetes.csv")
+markdown = df.to_markdown()
+
+text_file = open("sample.txt", "w")
+text_file.write(markdown)
+text_file.close()
+```
 
 ### Label Encoding
 
