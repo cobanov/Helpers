@@ -58,6 +58,26 @@ favorite_color = { "lion": "yellow", "kitty": "red" }
 pickle.dump( favorite_color, open( "save.p", "wb" ) )
 favorite_color = pickle.load( open( "save.p", "rb" ) )
 ```
+
+### Logging
+```python
+import logging
+
+logging.basicConfig(filename='test.log', level=logging.DEBUG,
+                    format='%(asctime)s:%(levelname)s:%(message)s')
+
+def add(x, y):
+    """Add Function"""
+    return x +
+
+num_1 = 20
+num_2 = 10
+
+add_result = add(num_1, num_2)
+logging.debug('Add: {} + {} = {}'.format(num_1, num_2, add_result))
+
+```
+
 ### Write dataframe with markdown
 ```python
 
