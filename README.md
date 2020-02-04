@@ -61,7 +61,13 @@ favorite_color = pickle.load( open( "save.p", "rb" ) )
 
 ### Timedelta
 ```python
-print(datetime.now() - timedelta(hours=2))
+import datetime
+
+hours_before = datetime.datetime.now() - datetime.timedelta(hours=2)
+
+print(f"Current Time: {datetime.datetime.now().timestamp()}")
+print(f"2 Hours Before: {hours_before.timestamp()}")
+
 ```
 
 ### Logging
