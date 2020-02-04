@@ -166,6 +166,13 @@ print("Precision = {}".format(precision_score(y_test, best_preds, average='macro
 print("Recall = {}".format(recall_score(y_test, best_preds, average='macro')))
 print("Accuracy = {}".format(accuracy_score(y_test, best_preds)))
 ```
+### Classification Report
+```python
+from sklearnmetrics import classification_report
+report = classification_report(y_test, best_preds)
+print(report)
+```
+
 
 <!-- TABLE OF CONTENTS -->
 ## Usefull Tools
