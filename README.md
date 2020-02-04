@@ -59,6 +59,11 @@ pickle.dump( favorite_color, open( "save.p", "wb" ) )
 favorite_color = pickle.load( open( "save.p", "rb" ) )
 ```
 
+### Timedelta
+```python
+print(datetime.now() - timedelta(hours=2))
+```
+
 ### Logging
 ```python
 import logging
