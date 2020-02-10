@@ -62,7 +62,7 @@ Note that xgboost.train() will return a model from the last iteration, not the b
 ### Default Initializers
 
 def_num_boost_round = 10
-def_metrics = 'merror'
+def_metrics = 'rmse'
 def_early_stopping_rounds = 5
 def_nfold = 3
 def_objective = {'objective' : 'multi:softprob'}
@@ -120,14 +120,34 @@ params_gs = {
                 }
 
 
-def run_model_train(dmatrix_train, 
-                    dmatrix_test, 
-                    params=params_normal, 
-                    num_boost_round=def_num_boost_round, 
-                    metrics=def_metrics, 
-                    early_stopping_rounds=def_early_stopping_rounds):
+
+def getData(df, target_col_name, test_size, show_shapes=True):
+    """ Get data from 'DataFrame', should defined col_name in order to seperation,
+        function returns 4 parameters which are train and test data
+        show_shapes shows which shapes that they are """
 
 
+    data_without_target = df.drop(columns=target_col_name)
+    X_train, X_test, y_train, y_test = train_test_split(data_without_target, df[target_col_name], test_size=test_size, random_state=123)
+    
+    if show_shapes == True:
+        for datas in [X_train, X_test, y_train, y_test]:
+            print(datas.shape)       
+
+    return X_train, X_test, y_train, y_test
+
+
+def getDmatrix_train_test(X_train, X_test, y_train, y_test):
+    """ This function converts data to DMatrix format, they are using in XGBModels like train or cv."""
+
+    data_dmatrix_train = xgb.DMatrix(data=X_train, label=y_train)
+    data_dmatrix_test = xgb.DMatrix(data=X_test, label=y_test)
+
+    return data_dmatrix_train, data_dmatrix_test
+
+
+
+def run_model_train(dmatrix_train, dmatrix_test, params=params_normal, num_boost_round=def_num_boost_round, metrics=def_metrics, early_stopping_rounds=def_early_stopping_rounds):
     """ Trains XGBmodel and prints sort of metrics,
         watchlist is using for plotting evaluation so if dmatrix_test already defined easily plots graphics
         in order to observe the model have overfitting problem or not."""
@@ -135,12 +155,11 @@ def run_model_train(dmatrix_train,
     watchlist = [(dmatrix_test, 'eval'), (dmatrix_train, 'train')]
     evals_result = {}
 
-    model_normal = xgb.train(params=params, 
-                            dtrain=dmatrix_train, 
-                            num_boost_round=num_boost_round,
-                            evals=watchlist,
-                            evals_result=evals_result
-                            )
+    model_normal = xgb.train(params=params, dtrain=dmatrix_train, 
+                    num_boost_round=num_boost_round,
+                    evals=watchlist,
+                    evals_result=evals_result
+                 )
 
     predicts = model_normal.predict(dmatrix_test)
     labels =  dmatrix_test.get_label()
@@ -148,28 +167,18 @@ def run_model_train(dmatrix_train,
 
     print("Precision = {}".format(precision_score(labels, best_preds, average='macro')))
     print("Recall = {}".format(recall_score(labels, best_preds, average='macro')))
-
     print("Accuracy = {}".format(accuracy_score(labels, best_preds)))
 
     return model_normal, evals_result #returns booster return type: trained booster model
 
 
 
-def run_model_cv(dmatrix_train, 
-                params=params_cv, 
-                show_plot=False, 
-                num_boost_round=def_num_boost_round, 
-                nfold=def_nfold, 
-                metrics=def_metrics, 
-                early_stopping_rounds=def_early_stopping_rounds):
-
+def run_model_cv(dmatrix_train, params=params_cv, show_plot=False, num_boost_round=def_num_boost_round, nfold=def_nfold, metrics=def_metrics, early_stopping_rounds=def_early_stopping_rounds):
     """ Function makes cross validation, this function returns a list(string) different from the above function. """
-    params["num_class"] = len(np.unique(dmatrix_train.get_label()))
 
-    model_cv = xgb.cv(params=params, 
-                    dtrain=dmatrix_train, 
+    model_cv = xgb.cv(params=params, dtrain=dmatrix_train, 
                     num_boost_round=num_boost_round, 
-                    nfold=nfold,
+                    nfold=nfold, 
                     early_stopping_rounds=early_stopping_rounds,
                     seed=123
                  )
@@ -184,14 +193,10 @@ def run_model_cv(dmatrix_train,
 
 
 
-def run_model_grid_search(X_train, y_train, params_gs=params_gs, to_csv=False):
-
+def run_model_grid_search(X_train, y_train, params_gs, num_class=def_num_class):
     """fgd asdf asd as """
-
-    num_class = len(y_train.unique())
-
-    model_xgb = xgb.XGBClassifier(objective='multi:softprob', 
-                                    num_class=num_class)
+    num_class = num_class
+    model_xgb = xgb.XGBClassifier(objective='multi:softprob', num_class=num_class)
     
     model_gs = GridSearchCV(param_grid=params_gs,
                             estimator=model_xgb,
@@ -204,13 +209,14 @@ def run_model_grid_search(X_train, y_train, params_gs=params_gs, to_csv=False):
     print("Best parameters found: ", model_gs.best_params_)
     print("Lowest RMSE found: ", np.sqrt(np.abs(model_gs.best_score_)))
 
-    if to_csv == True:
-        results = pd.DataFrame(model_gs.cv_results_)
-        results.to_csv("xgb-gs_results.csv", index=False)
+    
 
+    #results = pd.DataFrame(model_gs.cv_results_)
+    #results.to_csv("xgb-gs_results.csv", index=False)
     #best_estimator = model_gs.best_estimator_
 
     return model_gs
+
 
 
 # def run_model_predict(model, data_test, objective=param_normal['objective']):
