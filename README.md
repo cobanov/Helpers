@@ -34,9 +34,22 @@ print("no {}".format(veri.no))
 ### List Directory
 
 ```python
-import os
-wd = os.getcwd()
-os.listdir(wd)
+path = r"C:\Users\path"
+filenames = os.listdir(path)
+
+for i in filenames:
+    dirs = os.path.join(path, i)
+    print(dirs)
+```
+
+### Select files with extensions
+
+```python
+import glob, os
+for root, dirs, files in os.walk(path):
+    for file in files:
+        if file.endswith(".ipynb"):
+            print(os.path.join(root, file))
 ```
 
 ### Correlation Matrix
