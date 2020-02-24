@@ -127,6 +127,15 @@ for cols in data.columns:
     data[cols] = label_encoder.fit_transform(data[cols])
 ```
 
+### Show plots
+
+```python
+for name in data.columns[:20]: #Limit columns to plot on data 
+    plt.figure(figsize=(30,10)) #Change figure size
+    sns.scatterplot(x=data[name], y=range(0, data[name].shape[0])) #Make scatter plots
+    plt.show() #Show every plot on every iterations in order to not to wait for all
+```
+
 ### XGBoost
 
 ```python
