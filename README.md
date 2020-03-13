@@ -22,6 +22,7 @@ virtualenv env
 
 Example:
 'C:\Users\'Username'\venv\Scripts\activate.bat'
+# Optional: virtualenv venv --python=python2.7
 
 ```
 
