@@ -17,7 +17,7 @@
 ```
 mkdir my-python-project
 cd my-python-project
-virtual env
+virtualenv env
 \env\Scripts\activate.bat
 
 Example:
