@@ -12,6 +12,18 @@
 
 # Helpers.
 
+### Virtual Environment
+
+```
+mkdir my-python-project
+cd my-python-project
+virtual env
+\env\Scripts\activate.bat
+
+Example:
+'C:\Users\'Username'\venv\Scripts\activate.bat'
+
+```
 
 ### Argument Parser
 
