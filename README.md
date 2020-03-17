@@ -12,7 +12,14 @@
 
 # Helpers
 
+## Contents
+* [Python](#python)
+* [Data Manipulation](#data-manipulation)
+* [Statistics](#statistics)
+* [Visualization](#visualization)
+* [Machine Learning](#machine-learning)
 
+## Python
 ### Argument Parser
 
 ```python
@@ -37,16 +44,6 @@ print("no {}".format(veri.no))
 import os
 wd = os.getcwd()
 os.listdir(wd)
-```
-
-### Correlation Matrix
-
-```python
-import pandas as pd
-import seaborn as sns
-
-corr = d.corr()
-sns.heatmap(corr)
 ```
 
 ### Pickle 
@@ -89,6 +86,28 @@ logging.debug('Add: {} + {} = {}'.format(num_1, num_2, add_result))
 
 ```
 
+## Statistics
+
+### Correlation Matrix
+
+```python
+import pandas as pd
+import seaborn as sns
+
+corr = d.corr()
+sns.heatmap(corr)
+```
+
+### NaN Percentage
+
+```python
+nan_percentage = raw_data.isna().sum() * 100 / len(raw_data)
+missing_percentage_df = pd.DataFrame({'column_name': raw_data.columns, 'percent_missing': nan_percentage}).reset_index(drop=True)
+
+percentage_threshold = 20 #define percentage to filter
+missing_percentage_df[missing_percentage_df["percent_missing"] < percentage_threshold]
+```
+
 ### Write dataframe with markdown
 ```python
 
@@ -126,6 +145,8 @@ oneho = oh_encoder.fit_transform(targets)
 for cols in data.columns:
     data[cols] = label_encoder.fit_transform(data[cols])
 ```
+## Machine Learning
+More on 
 
 ### XGBoost
 
@@ -144,15 +165,6 @@ cv_results = xgb.cv(dtrain=churn_dmatrix, params=params, nfold=4,
                     num_boost_round=10, metrics="error", as_pandas=True)
 ```
 
-### NaN Percentage
-
-```python
-nan_percentage = raw_data.isna().sum() * 100 / len(raw_data)
-missing_percentage_df = pd.DataFrame({'column_name': raw_data.columns, 'percent_missing': nan_percentage}).reset_index(drop=True)
-
-percentage_threshold = 20 #define percentage to filter
-missing_percentage_df[missing_percentage_df["percent_missing"] < percentage_threshold]
-```
 
 ### Metrics
 
@@ -174,16 +186,6 @@ print(report)
 ```
 
 
-<!-- TABLE OF CONTENTS -->
-## Usefull Tools
-
-#### General
-  * [Argument Parser](https://github.com/cobanov/helprepo/blob/master/argumentparser.py)
-  * [List Directory](https://github.com/cobanov/helprepo/blob/master/listdir.py)
-  * [Flask](https://github.com/cobanov/helprepo/blob/master/flask.py)
-#### Tutorials 
-* [Pandas](https://github.com/cobanov/helprepo/blob/master/pandas.ipynb)
-* [Matplotlib](https://github.com/cobanov/helprepo/blob/master/matplotlib.ipynb)
 #### Machine Learning
   * [XGBoost Cross-Validation](https://github.com/cobanov/helprepo/blob/master/xgboost_cv.py)
   * [Hello Tensorflow](https://github.com/cobanov/helprepo/blob/master/deeplearning/tensorflow.py)
