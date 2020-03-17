@@ -12,7 +12,6 @@
 
 # Helpers.
 
-<<<<<<< HEAD
 ## Contents
 * [Python](#python)
 * [Data Manipulation](#data-manipulation)
@@ -21,22 +20,6 @@
 * [Machine Learning](#machine-learning)
 
 ## Python
-=======
-### Virtual Environment
-
-```
-mkdir my-python-project
-cd my-python-project
-virtualenv env
-\env\Scripts\activate.bat
-
-Example:
-'C:\Users\'Username'\venv\Scripts\activate.bat'
-# Optional: virtualenv venv --python=python2.7
-
-```
-
->>>>>>> 6603812f5f46fcf40c4997b313b5f99fe9cdd409
 ### Argument Parser
 
 ```python
