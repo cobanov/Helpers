@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/cobanov/Helpers/blob/master/help.png" width=300>
+  <img src="https://github.com/cobanov/Helpers/blob/master/img/help.png" width=300>
 </p>
 
 <p align="center">This repository contains helper scripts.
