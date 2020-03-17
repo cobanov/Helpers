@@ -20,7 +20,7 @@
 * [Machine Learning](#machine-learning)
 
 ## Python
-### Argument Parser
+#### Argument Parser
 
 ```python
 import argparse
@@ -38,7 +38,7 @@ print("soyisim {}".format(veri.soyisim))
 print("no {}".format(veri.no))
 ```
 
-### List Directory
+#### List Directory
 
 ```python
 path = r"C:\Users\path"
@@ -49,7 +49,7 @@ for i in filenames:
     print(dirs)
 ```
 
-### Select files with extensions
+#### Select files with extensions
 
 ```python
 import glob, os
@@ -59,7 +59,7 @@ for root, dirs, files in os.walk(path):
             print(os.path.join(root, file))
 ```
 
-### Pickle 
+#### Pickle 
 
 ```python
 import pickle
@@ -69,7 +69,7 @@ pickle.dump( favorite_color, open( "save.p", "wb" ) )
 favorite_color = pickle.load( open( "save.p", "rb" ) )
 ```
 
-### Timedelta
+#### Timedelta
 ```python
 import datetime
 
@@ -78,9 +78,9 @@ hours_before = datetime.datetime.now() - datetime.timedelta(hours=2)
 print(f"Current Time: {datetime.datetime.now().timestamp()}")
 print(f"2 Hours Before: {hours_before.timestamp()}")
 
-```
+``` 
 
-### Logging
+#### Logging
 ```python
 import logging
 
@@ -101,7 +101,7 @@ logging.debug('Add: {} + {} = {}'.format(num_1, num_2, add_result))
 
 ## Statistics
 
-### Correlation Matrix
+#### Correlation Matrix
 
 ```python
 import pandas as pd
@@ -111,7 +111,7 @@ corr = d.corr()
 sns.heatmap(corr)
 ```
 
-### NaN Percentage
+#### NaN Percentage
 
 ```python
 nan_percentage = raw_data.isna().sum() * 100 / len(raw_data)
@@ -121,7 +121,7 @@ percentage_threshold = 20 #define percentage to filter
 missing_percentage_df[missing_percentage_df["percent_missing"] < percentage_threshold]
 ```
 
-### Write dataframe with markdown
+#### Write dataframe with markdown
 ```python
 
 import pandas as pd
@@ -134,7 +134,7 @@ text_file.write(markdown)
 text_file.close()
 ```
 
-### Label Encoding
+#### Label Encoding
 
 ```python
 from sklearn.datasets import load_iris
@@ -159,9 +159,9 @@ for cols in data.columns:
     data[cols] = label_encoder.fit_transform(data[cols])
 ```
 ## Machine Learning
-More on 
+[More on  machine learning repo](https://github.com/cobanov/Helpers/tree/master/machine_learning)
 
-### Show plots
+#### Show plots
 
 ```python
 for name in data.columns[:20]: #Limit columns to plot on data 
@@ -170,7 +170,7 @@ for name in data.columns[:20]: #Limit columns to plot on data
     plt.show() #Show every plot on every iterations in order to not to wait for all
 ```
 
-### XGBoost
+#### XGBoost
 
 ```python
 import xgboost as xgboost
@@ -188,7 +188,7 @@ cv_results = xgb.cv(dtrain=churn_dmatrix, params=params, nfold=4,
 ```
 
 
-### Metrics
+#### Metrics
 
 ```python
 import numpy as np
@@ -200,22 +200,32 @@ print("Precision = {}".format(precision_score(y_test, best_preds, average='macro
 print("Recall = {}".format(recall_score(y_test, best_preds, average='macro')))
 print("Accuracy = {}".format(accuracy_score(y_test, best_preds)))
 ```
-### Classification Report
+#### Classification Report
 ```python
 from sklearnmetrics import classification_report
 report = classification_report(y_test, best_preds)
 print(report)
 ```
 
-
-#### Machine Learning
-  * [XGBoost Cross-Validation](https://github.com/cobanov/helprepo/blob/master/xgboost_cv.py)
-  * [Hello Tensorflow](https://github.com/cobanov/helprepo/blob/master/deeplearning/tensorflow.py)
-  * [Confusion Matrix](https://github.com/cobanov/helprepo/blob/master/deeplearning/confmat.py)
-  * [GPU Available](https://github.com/cobanov/helprepo/blob/master/deeplearning/gpu_available.py)
-  * [Basic Keras](https://github.com/cobanov/helprepo/blob/master/deeplearning/keras_mnist.py)
-  * [More Basic Keras](https://github.com/cobanov/helprepo/blob/master/deeplearning/easykeras.py)
-
+## Visualization
+[More on visualizaton repo](https://github.com/cobanov/Helpers/tree/master/visualization)
+```python
+def dact_dist(dataset, high_corrs, class_col):
+    
+    """
+    :dataset: pandas dataframe
+    :values: columns to visualize
+    :class_col: classes
+    """
+    
+    labels = dataset[class_col].value_counts().index.to_list()
+    for col_name in high_corrs:
+        fig, ax = plt.subplots(figsize=(30,10))
+        for label in labels: 
+            sns.distplot(dataset[col_name][dataset[class_col]==label], ax=ax)
+            ax.legend(labels)
+        plt.show()
+```
 
 <!-- CONTACT -->
 ## Contact
