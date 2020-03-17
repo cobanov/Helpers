@@ -10,8 +10,9 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
-# Helpers
+# Helpers.
 
+<<<<<<< HEAD
 ## Contents
 * [Python](#python)
 * [Data Manipulation](#data-manipulation)
@@ -20,6 +21,22 @@
 * [Machine Learning](#machine-learning)
 
 ## Python
+=======
+### Virtual Environment
+
+```
+mkdir my-python-project
+cd my-python-project
+virtualenv env
+\env\Scripts\activate.bat
+
+Example:
+'C:\Users\'Username'\venv\Scripts\activate.bat'
+# Optional: virtualenv venv --python=python2.7
+
+```
+
+>>>>>>> 6603812f5f46fcf40c4997b313b5f99fe9cdd409
 ### Argument Parser
 
 ```python
@@ -41,9 +58,22 @@ print("no {}".format(veri.no))
 ### List Directory
 
 ```python
-import os
-wd = os.getcwd()
-os.listdir(wd)
+path = r"C:\Users\path"
+filenames = os.listdir(path)
+
+for i in filenames:
+    dirs = os.path.join(path, i)
+    print(dirs)
+```
+
+### Select files with extensions
+
+```python
+import glob, os
+for root, dirs, files in os.walk(path):
+    for file in files:
+        if file.endswith(".ipynb"):
+            print(os.path.join(root, file))
 ```
 
 ### Pickle 
@@ -147,6 +177,15 @@ for cols in data.columns:
 ```
 ## Machine Learning
 More on 
+
+### Show plots
+
+```python
+for name in data.columns[:20]: #Limit columns to plot on data 
+    plt.figure(figsize=(30,10)) #Change figure size
+    sns.scatterplot(x=data[name], y=range(0, data[name].shape[0])) #Make scatter plots
+    plt.show() #Show every plot on every iterations in order to not to wait for all
+```
 
 ### XGBoost
 
