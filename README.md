@@ -158,6 +158,30 @@ oneho = oh_encoder.fit_transform(targets)
 for cols in data.columns:
     data[cols] = label_encoder.fit_transform(data[cols])
 ```
+
+#### Determine how many extra columns would be created
+
+
+```python
+# Select the object (string) columns
+mask = data.dtypes == np.object
+categorical_cols = data.columns[mask]
+
+num_ohc_cols = (data[categorical_cols]
+                .apply(lambda x: x.nunique())
+                .sort_values(ascending=False))
+                
+# No need to encode if there is only one value
+small_num_ohc_cols = num_ohc_cols.loc[num_ohc_cols>1]
+
+# Number of one-hot columns is one less than the number of categories
+small_num_ohc_cols -= 1
+
+# This is 215 columns, assuming the original ones are dropped. 
+# This is quite a few extra columns!
+small_num_ohc_cols.sum()                             
+```
+
 ## Machine Learning
 [More on  machine learning repo](https://github.com/cobanov/Helpers/tree/master/machine_learning)
 
