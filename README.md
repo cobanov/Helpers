@@ -185,6 +185,38 @@ small_num_ohc_cols.sum()
 ## Machine Learning
 [More on  machine learning repo](https://github.com/cobanov/Helpers/tree/master/machine_learning)
 
+#### Get notifications when the model has finished
+
+```python
+# Model Kütüphaneleri
+from sklearn.metrics import accuracy_score, precision_score
+from sklearn.ensemble import RandomForestClassifier
+
+# Bildirim Kütüphaneleri
+from win10toast import ToastNotifier
+import time
+
+# # Toplam süreyi hesaplamak ve bunu bildirimde görmek iyi olabilir.
+start = time.process_time()
+model = RandomForestClassifier(n_estimators=700).fit(X_train, y_train)
+duration = time.process_time() - start
+
+# # Model tahminlerini alalım
+preds = model.predict(X_test)
+
+# # Metriklerimizi alalım
+acc = accuracy_score(y_test, preds))
+prec = (precision_score(y_test, preds))
+
+# Bildirim objemizi oluşturalım
+toaster = ToastNotifier()
+toaster.show_toast("Eğitim bitti",
+                   f"{acc}, {model_precision}, Süre: {duration}",
+                   icon_path=None,
+                   duration=5,
+                   threaded=True)
+```
+
 #### Show plots
 
 ```python
