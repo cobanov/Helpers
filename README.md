@@ -37,17 +37,7 @@ print("isim {}".format(veri.isim))
 print("soyisim {}".format(veri.soyisim))
 print("no {}".format(veri.no))
 ```
-### Virtual Env and Pip Best Practices
-```
-python -m venv [directory] #Create venv
-myvenv/bin/activate.bin #activate, for windows just click
-pip install simplejson # regular installing via python
-pip install --upgrade pip # this is also commonly known
-pip freeze > requirements.txt # this is best :), for venv it creates requ.txt 
-pip install -r requirements.txt # easy way to install all dependencies
-deactivate # deactivate env :)
 
-```
 
 #### List Directory
 
@@ -312,6 +302,19 @@ def correlation_heatmap(train):
     
 correlation_heatmap(train)
 ```
+### Virtual Env and Pip Best Practices
+
+```python
+python -m venv [directory] #Create venv
+myvenv/bin/activate.bin #activate, for windows just click
+pip install simplejson # regular installing via python
+pip install --upgrade pip # this is also commonly known
+pip freeze > requirements.txt # this is best :), for venv it creates requ.txt 
+pip install -r requirements.txt # easy way to install all dependencies
+deactivate # deactivate env :)
+
+```
+
 
 <!-- CONTACT -->
 ## Contact
