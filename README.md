@@ -311,6 +311,24 @@ for cat in categories:
     g = sns.kdeplot(data_70[data['Feat1']==cat]["Feat2"],shade=True, bw=.01)
     g.set_xlim(59,65)
 ```
+```python
+
+barplot = data.groupby(by=["Durum"])[st60_parameters].agg(["mean", "std" ,"median"]).T
+f, axes = plt.subplots(int(barplot.shape[0]/barplot.shape[1]), barplot.shape[1], figsize=(20, barplot.shape[0]*2))
+
+
+counter=0
+for i in range(int(barplot.shape[0]/barplot.shape[1])):
+    for y in range(barplot.shape[1]):
+        g = sns.barplot(x=barplot.iloc[counter].index, 
+                    y=barplot.iloc[counter].values, 
+                    hue=barplot.iloc[counter].index, 
+                    ax=axes[i,y], 
+                    palette="Set1")
+        g.set_title(barplot.iloc[counter].name)
+        counter += 1
+```
+
 
 ### Virtual Env and Pip Best Practices
 
