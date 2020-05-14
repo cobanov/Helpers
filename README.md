@@ -302,6 +302,16 @@ def correlation_heatmap(train):
     
 correlation_heatmap(train)
 ```
+```python
+
+categories = ["A", "B", "C"]
+plt.figure(figsize=(30,5))
+
+for cat in categories:
+    g = sns.kdeplot(data_70[data['Feat1']==cat]["Feat2"],shade=True, bw=.01)
+    g.set_xlim(59,65)
+```
+
 ### Virtual Env and Pip Best Practices
 
 ```python
