@@ -112,7 +112,7 @@ corr = d.corr()
 sns.heatmap(corr)
 ```
 
-#### NaN Percentage
+#### NaN Percentage (This is not a clever way also useless, nevertheless i won't remove it.)
 
 ```python
 nan_percentage = raw_data.isna().sum() * 100 / len(raw_data)
