@@ -112,7 +112,7 @@ pip install -r requirements.txt # easy way to install all dependencies
 deactivate # deactivate env :)
 
 ```
-
+### Rollback to previous version
 ```git
 git reset --hard <old-commit-id>
 git push -f <remote-name> <branch-name>
