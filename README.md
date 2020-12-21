@@ -100,6 +100,25 @@ logging.debug('Add: {} + {} = {}'.format(num_1, num_2, add_result))
 
 ```
 
+### Virtual Env, Pip, Git
+
+```python
+python -m venv [directory] #Create venv
+myvenv/bin/activate.bin #activate, for windows just click
+pip install simplejson # regular installing via python
+pip install --upgrade pip # this is also commonly known
+pip freeze > requirements.txt # this is best :), for venv it creates requ.txt 
+pip install -r requirements.txt # easy way to install all dependencies
+deactivate # deactivate env :)
+
+```
+
+```git
+git reset --hard <old-commit-id>
+git push -f <remote-name> <branch-name>
+# not recommended working with collaborative environment
+```
+
 ## Statistics
 
 #### Correlation Matrix
@@ -330,18 +349,6 @@ for i in range(int(barplot.shape[0]/barplot.shape[1])):
 ```
 
 
-### Virtual Env and Pip Best Practices
-
-```python
-python -m venv [directory] #Create venv
-myvenv/bin/activate.bin #activate, for windows just click
-pip install simplejson # regular installing via python
-pip install --upgrade pip # this is also commonly known
-pip freeze > requirements.txt # this is best :), for venv it creates requ.txt 
-pip install -r requirements.txt # easy way to install all dependencies
-deactivate # deactivate env :)
-
-```
 
 
 <!-- CONTACT -->
